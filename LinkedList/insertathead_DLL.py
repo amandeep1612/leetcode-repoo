@@ -14,6 +14,14 @@ def createDLL(values):
         newNode.prev=current
         current=newNode
     return head
+def insertAtHead(head,val):
+    
+    newNode=ListNode(val) #5
+    newNode.next=head #5->head
+    head.prev=newNode  #5->head(1)
+    head=newNode #head=5 
+    #none->5->1->2
+
 
 
 def printForward(head):
@@ -22,24 +30,23 @@ def printForward(head):
         print(current.data,end=" -> " )
         current=current.next
     print("none")
+    return head
 
-def printBackward(head):
-    if head is None:
-        return None
-    
 
-    current=head
-    while current.next:
-        current=current.next #reach last node
-    while current:
-        print(current.data,end=" -> ")
-        current=current.prev
-    print("none")
+
+
+
+
+
+
+
 
 values=[10,20,30]
 head=createDLL(values)
-print("forward :")
+print("list before insertion :")
 printForward(head)
-print("backwards :")
-printBackward(head)
+head=insertAtHead(head,5)
+print("list after insertion :")
+printForward(head)
 
+print(head)
